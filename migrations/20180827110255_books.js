@@ -5,7 +5,7 @@ exports.up = function(knex, Promise) {
     books.text('title')
     books.text('genre')
     books.text('description')
-    books.text('cover url')
+    books.text('cover_url')
   })
 };
 
