@@ -3,13 +3,13 @@ const router = express.Router();
 
 const queries = require('../queries');
 
-router.get("/", (request, response, next) => {
+router.get("/books", (request, response, next) => {
   queries.listBooks("books").then(books => {
       response.json({books});
   }).catch(next);
 });
 
-router.get("/:id", (request, response, next) => {
+router.get("/books/:id", (request, response, next) => {
   queries.read("books",request.params.id).then(books => {
       books
           ? response.json({books})
@@ -17,7 +17,7 @@ router.get("/:id", (request, response, next) => {
   }).catch(next);
 });
 
-router.post("/", (request, response, next) => {
+router.post("/books", (request, response, next) => {
   queries.create("books",request.body).then(books => {
       response.status(201).json({books: books});
   }).catch(next);
